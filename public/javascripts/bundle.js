@@ -86,64 +86,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var damage_calc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var damage_calc__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(damage_calc__WEBPACK_IMPORTED_MODULE_0__);
-
-
-
-var root = document.getElementById('root');
-root.innerHTML = '<p>攻撃力 100, 防御 50, 防御貫通 30 のダメージは、' + damage_calc__WEBPACK_IMPORTED_MODULE_0___default.a.effectiveDamage(100, 50, 30) + '</p>';
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * 攻撃力が防御力や防御力貫通によってどのようなダメージになるのかを計算する関数
- * 
- * 負の入力値があった場合には0として扱い、2000以上の入力値は2000として扱う。
- * 実効防御力は、防御力 - 防御力貫通 で定義され、
- * この実行防御力は、0未満にはならない。
- * ダメージ減少率は、実効防御力 / (100 + 実効防御力) で定義され、
- * ダメージは、攻撃力 * (1 - ダメージ減少率) を小数点以下で四捨五入した値となる。
- * 
- * @param {Number} power 攻撃力
- * @param {Number} armor 防御力
- * @param {Number} armorPenetration 防御力貫通
- * @return {Number} ダメージ
- */
-function effectiveDamage(power, armor, armorPenetration) {
-  let effectiveArmor = normalize(armor) - normalize(armorPenetration);
-  effectiveArmor = effectiveArmor <= 0 ? 0 : effectiveArmor;
-  let damageDecrease = effectiveArmor / (100 + effectiveArmor);
-  return Math.round(normalize(power) * (1 - damageDecrease));
-}
-
-/**
- * 異常な可能性のある入力値を正常値にする
- * @param {Number} n 異常な可能性のある入力値
- * @return {Number} 正常値
- */
-function normalize(n) {
-  if (n < 0) {
-    return 0;
-  } else if (n >= 2000) {
-    return 2000;
-  } else {
-    return n;
-  }
-}
-
-module.exports = {
-  effectiveDamage: effectiveDamage
-};
+throw new Error("Module build failed (from ../node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/vagrant/workspace/intro-curriculum-4006/app/entry.js: Identifier 'root' has already been declared (8:6)\n\n\u001b[0m \u001b[90m 6 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 7 | \u001b[39m\u001b[36mimport\u001b[39m crypto from \u001b[32m'crypto'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 8 | \u001b[39m\u001b[36mconst\u001b[39m root \u001b[33m=\u001b[39m document\u001b[33m.\u001b[39mgetElementById(\u001b[32m'root'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   | \u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 9 | \u001b[39mroot\u001b[33m.\u001b[39minnerHTML \u001b[33m=\u001b[39m \u001b[32m'<p>'\u001b[39m \u001b[33m+\u001b[39m crypto\u001b[33m.\u001b[39mrandomBytes(\u001b[35m8\u001b[39m)\u001b[33m.\u001b[39mtoString(\u001b[32m'hex'\u001b[39m) \u001b[33m+\u001b[39m \u001b[32m'</p>'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:742:17)\n    at Parser.raiseWithData (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:735:17)\n    at Parser.raise (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:729:17)\n    at ScopeHandler.checkRedeclarationInScope (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:4781:12)\n    at ScopeHandler.declareName (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:4747:12)\n    at Parser.checkLVal (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:9229:22)\n    at Parser.parseVarId (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:11785:10)\n    at Parser.parseVar (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:11760:12)\n    at Parser.parseVarStatement (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:11572:10)\n    at Parser.parseStatementContent (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:11171:21)\n    at Parser.parseStatement (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:11104:17)\n    at Parser.parseBlockOrModuleBlockBody (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:11679:25)\n    at Parser.parseBlockBody (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:11665:10)\n    at Parser.parseTopLevel (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:11035:10)\n    at Parser.parse (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:12671:10)\n    at parse (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/parser/lib/index.js:12722:38)\n    at parser (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/core/lib/parser/index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/core/lib/transformation/normalize-file.js:93:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/core/lib/transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (/home/vagrant/workspace/intro-curriculum-4006/node_modules/gensync/index.js:254:32)\n    at gen.next (/home/vagrant/workspace/intro-curriculum-4006/node_modules/gensync/index.js:266:13)\n    at async.call.value (/home/vagrant/workspace/intro-curriculum-4006/node_modules/gensync/index.js:216:11)\n    at errback.call (/home/vagrant/workspace/intro-curriculum-4006/node_modules/gensync/index.js:184:28)\n    at runGenerator.errback (/home/vagrant/workspace/intro-curriculum-4006/node_modules/@babel/core/lib/gensync-utils/async.js:72:7)\n    at val (/home/vagrant/workspace/intro-curriculum-4006/node_modules/gensync/index.js:108:33)");
 
 /***/ })
 /******/ ]);
